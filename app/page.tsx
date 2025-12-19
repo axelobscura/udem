@@ -14,15 +14,15 @@ export default function Home() {
               height={40}
               priority
             />
-            <p className="text-white p-5 uppercase text">Instituto Mexicano del Cemento y del Concreto A.C.</p>
+            <p className="text-white p-5 uppercase font-oswald font-light">Instituto Mexicano del Cemento y del Concreto A.C.</p>
           </div>
           <div className="min-h-screen bg-gray-950">
             <div className="flex min-h-screen justify-center items-center">
               <form className="flex flex-col items-center justify-center h-full px-5 w-full max-w-md">
-                <h1 className="text-2xl text-white mb-6 uppercase text-center">Una plataforma para profesionales de la construcción con concreto</h1>
-                <p className="text-white mb-8 text-center">Compartir el Conocimiento</p>
+                <h1 className="text-2xl text-white mb-6 uppercase text-center font-oswald font-bold">Una plataforma para profesionales de la construcción con concreto</h1>
+                <p className="text-white mb-8 text-center font-oswald uppercase font-light">Compartir el Conocimiento</p>
                 <div className="w-full mb-4">
-                  <label htmlFor="email" className="block text-white mb-2 text-sm font-medium text-left">
+                  <label htmlFor="email" className="block text-white mb-2 text-1xl font-medium text-left font-oswald uppercase">
                     Correo electrónico:
                   </label>
                   <input
@@ -35,7 +35,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="w-full mb-6">
-                  <label htmlFor="password" className="block text-white mb-2 text-sm font-medium text-left">
+                  <label htmlFor="password" className="block text-white mb-2 text-1xl font-medium text-left font-oswald uppercase">
                     Contraseña:
                   </label>
                   <input
@@ -49,13 +49,13 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 uppercase shadow-xl hover:shadow-2xl"
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 uppercase shadow-xl hover:shadow-2xl font-oswald"
                 >
                   Iniciar sesión
                 </button>
 
                 <div className="mt-4 text-center">
-                  <a href="https://forms.gle/3Yk9QWQK8f6nR9ZJ9" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 text-sm underline">
+                  <a href="/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 text-sm font-oswald uppercase">
                     ¿No tienes cuenta? Regístrate aquí
                   </a>
                 </div>
@@ -71,7 +71,7 @@ export default function Home() {
               height={20}
               priority
             />
-            <p className="text-white p-5 uppercase text">Universidad de Monterrey</p>
+            <p className="text-white p-5 uppercase text font-oswald font-light">Universidad de Monterrey</p>
           </div>
         </div>
       </main>
