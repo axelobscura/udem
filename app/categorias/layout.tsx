@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "IMCYC | UDEM Compartiendo el conocimiento",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <>
+      <Header />
       {children}
+      <Footer />
     </>
   );
 }

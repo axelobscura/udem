@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -47,12 +48,13 @@ export default function Home() {
                     placeholder="••••••••"
                   />
                 </div>
-                <button
+                <Link
                   type="submit"
                   className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 uppercase shadow-xl hover:shadow-2xl font-oswald"
+                  href="/categorias"
                 >
                   Iniciar sesión
-                </button>
+                </Link>
 
                 <div className="mt-4 text-center">
                   <a href="/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 text-sm font-oswald uppercase">
