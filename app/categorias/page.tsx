@@ -1,10 +1,13 @@
 "use client"
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Categoria {
   id: number;
   nombre: string;
-  descripcion: string;
+  imagen: string;
+  link: string;
 } 
 
 export default function Categorias() {
@@ -31,14 +34,15 @@ export default function Categorias() {
 
   return (
     <div className="flex items-center justify-center font-sans bg-black">
-      <main className="flex w-full flex-col items-center justify-between bg-gray-900 sm:items-start">
-        <h2 className="text-gray-100 font-oswald text-4xl p-3">CATEGORIAS</h2>
-        <div className="px-10 py-20">
+      <main className="flex w-full flex-col items-center justify-between sm:items-start px-10 py-10 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-5 w-full">
           {categoriaData && categoriaData.map((categoria: Categoria) => (
-            <div key={categoria.id}>
-              <h2 className="text-white">{categoria.nombre}</h2>
-              <p className="text-gray-400">{categoria.descripcion}</p>
-            </div>
+            <Link href={categoria.link} key={categoria.id} className="border border-slate-800">
+              <div key={categoria.id} className="border border-slate-800">
+                <Image src={`/webinars/categorias/${categoria.imagen}`} alt={categoria.nombre} width={200} height={100} className="w-full h-auto"/>
+                <h2 className="text-white font-oswald text-1xl font-light bg-slate-900 p-3">{categoria.nombre}</h2>
+              </div>
+            </Link>
           ))}
         </div>
       </main>
