@@ -54,24 +54,30 @@ export default function Webinars() {
 
   return (
     <div className="flex items-center justify-center font-sans bg-black w-full">
-      <main className="flex w-full flex-col items-center justify-between sm:items-center px-10 py-10 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
+      <main className="flex w-full flex-col items-center justify-between sm:items-center px-10 py-5 bg-[url('https://amci.webinarsenconcreto.com/images/contenido.jpg')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
         <div className="grid grid-cols-1 gap-5 w-full">
           <BreadCrumbUser params={{ categoria: categoria }} />
-          <h3 className="font-oswald text-5xl text-white font-light mb-5">{categoriaData?.nombre}</h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_1fr] gap-5 w-full">
-          {webinars && webinars.map((webinar: Webinar) => {
-            return (
-              <Link key={webinar.id} href={`/categorias/${categoriaData.link}/${webinar.url}`} target="_blank" rel="noopener noreferrer">
-                <div className="border border-slate-800 hover:border-blue-500 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-slate-900">
-                  <div>
-                    <Image src={`/webinars/${webinar.imagen || 'default.jpg'}`} alt={webinar.nombre} width={200} height={100} className="w-full h-auto"/>
-                    <h2 className="text-white font-oswald text-1xl font-light bg-slate-900 p-3">{webinar.nombre}</h2>
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+        <div className="grid grid-cols-[30%_70%] gap-5 w-full min-h-[80vh]">
+          <div className='h-full flex items-center'>
+            <h3 className="font-oswald text-5xl text-white font-light mb-5">{categoriaData?.nombre}</h3>
+          </div>
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr_1fr] gap-5 w-full">
+              {webinars && webinars.map((webinar: Webinar) => {
+                return (
+                  <Link key={webinar.id} href={`/categorias/${categoriaData.link}/${webinar.url}`} rel="noopener noreferrer">
+                    <div className="border border-slate-800 hover:border-blue-500 rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-slate-900">
+                      <div>
+                        <Image src={`/webinars/${webinar.imagen || 'default.jpg'}`} alt={webinar.nombre} width={200} height={100} className="w-full h-auto"/>
+                        <h2 className="text-white font-oswald text-sm font-bold bg-slate-900 p-3 text-center min-h-20 flex items-center justify-center">{webinar.nombre}</h2>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </main>
     </div>

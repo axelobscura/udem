@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full flex-col items-center justify-between bg-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full flex-col items-center justify-between bg-white dark:bg-black sm:items-start bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700/80 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
         <div className="grid text-center min-h-screen items-center lg:mb-0 md:grid-cols-[1fr_1fr_1fr] w-full">
-          <div className="p-5 bg-gray-900 min-h-[20vh] md:min-h-screen flex flex-col items-center justify-center hover:bg-yellow-500 transition-colors">
+          <div className="p-5 bg-gray-950/90 min-h-[20vh] md:min-h-screen flex flex-col items-center justify-center hover:bg-yellow-500 transition-colors">
             <Image
               src="/logo-imcyc-blanco.svg"
               alt="Next.js logo"
@@ -16,7 +16,7 @@ export default function Home() {
             />
             <p className="text-white p-5 uppercase font-oswald font-light">Instituto Mexicano del Cemento y del Concreto A.C.</p>
           </div>
-          <div className="min-h-[60vh] md:min-h-screen bg-gray-950">
+          <div className="min-h-[60vh] md:min-h-screen bg-gray-950/80 bg-blend-multiply">
             <div className="flex min-h-[60vh] md:min-h-screen justify-center items-center">
               <form className="flex flex-col items-center justify-center h-full px-5 w-full max-w-md">
                 <h1 className="text-2xl text-white mb-6 uppercase text-center font-oswald font-bold">Una plataforma para profesionales de la construcción con concreto</h1>
@@ -63,7 +63,7 @@ export default function Home() {
               </form>
             </div>
           </div>
-          <div className="p-5 bg-yellow-500 min-h-[20vh] md:min-h-screen flex flex-col items-center justify-center hover:bg-gray-900">
+          <div className="p-5 bg-yellow-500/90 min-h-[20vh] md:min-h-screen flex flex-col items-center justify-center hover:bg-gray-900">
             <Image
               className="dark:invert"
               src="/logo.svg"
