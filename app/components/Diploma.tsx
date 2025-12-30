@@ -3,7 +3,7 @@ import generatePDF, { Resolution, Margin, Options } from 'react-to-pdf';
 const options: Options = {
   filename: 'advanced-options.pdf',
   // 'save' or 'open', default is 'save'
-  method: 'save',
+  method: 'open',
   // default is Resolution.MEDIUM = 3, which should be enough, higher values
   // increases the image quality but also the size of the PDF, so be careful
   // using values higher than 10 when having multiple pages generated, it
