@@ -2195,3 +2195,20 @@ body {
   width: 100%;
   min-height: 590px;
 }
+
+.barra_lateral ul.menu.interno li a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  background: rgbs(0, 0, 0, 0.8);
+  border-bottom: 1px solid #1f324b;
+  transition: all 1s;
+}
+
+.barra_lateral ul.menu.interno li a:hover {
+  background: rgba(0, 0, 0, 1);
+}

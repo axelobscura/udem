@@ -128,7 +128,6 @@ export default function Webinar() {
   useEffect(() => {
       initializeFlipbook()
   }, []);
-  console.log('webinar param: ', decodeURIComponent(webinar as string));
 
   return (
     <div className="flex items-center justify-center font-sans bg-black w-full">
@@ -137,18 +136,18 @@ export default function Webinar() {
           <BreadCrumbUser params={{ categoria: decodeURIComponent(categoria as string), webinar: decodeURIComponent(webinar as string) }} />
           <h3 className="font-oswald text-5xl text-white font-light mb-5">{decodeURIComponent(webinar as string).replace('-', ' ').toUpperCase()}</h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_7fr] gap-5 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-[20%_80%] gap-5 w-full">
           <div>
-            <Diploma />
             <MenuLateral params={params} />
           </div>
-          <div style={{
-            width: '100%',
-            position: 'relative',
-            height: '80vh',
-          }}>
-            <Video id="regergergergerg"/>
-            <div id="container"></div>
+          <div>
+            <div style={{
+              width: '100%',
+              position: 'relative',
+              height: '80vh',
+            }}>
+              
+            </div>
           </div>
         </div>
       </main>

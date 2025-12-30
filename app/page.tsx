@@ -8,7 +8,6 @@ export default function Home() {
         <div className="grid text-center min-h-screen items-center lg:mb-0 md:grid-cols-[1fr_1fr_1fr] w-full">
           <div className="p-5 bg-gray-900 min-h-[20vh] md:min-h-screen flex flex-col items-center justify-center hover:bg-yellow-500 transition-colors">
             <Image
-              className="dark:invert"
               src="/logo-imcyc-blanco.svg"
               alt="Next.js logo"
               width={300}
