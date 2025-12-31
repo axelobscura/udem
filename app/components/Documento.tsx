@@ -1,12 +1,8 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import MenuLateral from '@/app/components/MenuLateral';
-//import Loader from '@/app/components/Loader';
-import BreadCrumbUser from '@/app/components/BreadCrumbUser';
 import Script from 'next/script';
 import Loader from '@/app/components/Loader';
-import { BsArrowRightCircle } from "react-icons/bs";
 
 interface FlipBookButtonOptions {
     enabled?: boolean;
@@ -132,6 +128,7 @@ export default function Documento() {
         }
     }
     fetchData();
+    initializeFlipbook();
   }, [webinar]);
 
   if(!tipoData) {

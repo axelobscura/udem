@@ -8,15 +8,6 @@ import Script from 'next/script';
 import Loader from '@/app/components/Loader';
 import { BsArrowRightCircle } from "react-icons/bs";
 
-/*
-interface Categoria {
-    id: number;
-    nombre: string;
-    link: string;
-    imagen: string;
-    descripcion: string;
-}
-*/
 interface Webinar {
     id: number;
     nombre: string;
@@ -150,6 +141,7 @@ export default function Webinar() {
             console.error(error);
         }
     }
+    initializeFlipbook();
     fetchData();
   }, [webinar]);
 
