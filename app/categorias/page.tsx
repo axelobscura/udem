@@ -23,7 +23,6 @@ export default function Categorias() {
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            console.log(data);
             setCategoriaData(data);
         } catch (error) {
             console.error(error);

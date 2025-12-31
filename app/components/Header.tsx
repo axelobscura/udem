@@ -1,13 +1,23 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { useState, useRef, useEffect } from 'react';
+import { useRouter } from "next/navigation";
+import { useUser } from '../context/UserContext';
 
 export default function Header() {
+  const router = useRouter();
+  const { user, isLoggedIn, logout } = useUser();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Redirect if not logged in
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/');
+    }
+  }, [isLoggedIn, router]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -19,6 +29,11 @@ export default function Header() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    router.push('/');
+  };
 
   return (
     <div className="flex items-center justify-center bg-slate-950 shadow-2xl shadow-black w-full">
@@ -55,6 +70,9 @@ export default function Header() {
             <HiOutlineUserCircle size={40} style={{
               color: '#fff'
             }} />
+            {user && (
+              <span className="ml-2 text-white font-medium uppercase">{user.nombre ? user.nombre : user.email}</span>
+            )}
           </button>
           
           {isDropdownOpen && (
@@ -83,10 +101,7 @@ export default function Header() {
               <hr className="my-2" />
               <button 
                 className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 transition-colors"
-                onClick={() => {
-                  setIsDropdownOpen(false);
-                  // Add logout logic here
-                }}
+                onClick={handleLogout}
               >
                 Cerrar Sesión
               </button>

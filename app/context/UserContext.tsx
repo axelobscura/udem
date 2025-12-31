@@ -1,6 +1,5 @@
 "use client";
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define the User interface
 export interface User {
