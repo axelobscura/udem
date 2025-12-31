@@ -2200,7 +2200,7 @@ body {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 0.5rem;
   color: #fff;
   display: flex;
   align-items: center;

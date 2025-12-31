@@ -20,7 +20,7 @@ export default function BreadCrumbUser({ params }: BreadCrumbUserProps) {
   const webinarUrl = url || (webinar ? `/categorias/${categoria}/${webinar}` : "#");
 
   return (
-    <div className="grid grid-cols-[1fr] sm:grid-cols-[4fr_1fr] gap-0 mt-0 items-center">
+    <div className="hidden sm:grid grid-cols-[1fr] sm:grid-cols-[4fr_1fr] gap-0 mt-0 items-center">
       <div>
         <nav
           className="flex px-0 py-3 text-gray-700 bg-opacity-50"

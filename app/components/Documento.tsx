@@ -8,25 +8,6 @@ import Script from 'next/script';
 import Loader from '@/app/components/Loader';
 import { BsArrowRightCircle } from "react-icons/bs";
 
-/*
-interface Categoria {
-    id: number;
-    nombre: string;
-    link: string;
-    imagen: string;
-    descripcion: string;
-}
-*/
-interface Webinar {
-    id: number;
-    nombre: string;
-    descripcion: string;
-    fecha: string;
-    url: string;
-    id_categoria: number;
-    imagen?: string;
-}
-
 interface FlipBookButtonOptions {
     enabled?: boolean;
     vAlign?: string;
@@ -85,7 +66,7 @@ declare global {
     }
 }
 
-export default function Webinar() {
+export default function Documento() {
   const params = useParams();
   const categoria = params.webinars as string;
   const webinar = params.webinar as string;
@@ -129,7 +110,7 @@ export default function Webinar() {
           } else {
             console.error('jQuery or flipBook not available');
           }
-      }, 200);
+      }, 300);
   };
 
   useEffect(() => {
@@ -158,16 +139,8 @@ export default function Webinar() {
   }
 
   return (
-    <div className="flex items-center justify-center font-sans bg-black w-full">
-      <main className="flex w-full flex-col items-center justify-between sm:items-start px-10 py-5 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
-        <div className="grid grid-cols-1 gap-2 w-full">
-          <BreadCrumbUser params={{ categoria: decodeURIComponent(categoria as string), webinar: decodeURIComponent(webinar as string) }} />
-          <h3 className="font-oswald text-3xl text-white font-light mb-7 flex items-center"><BsArrowRightCircle className='mr-3' /> {tipoData.nombre}</h3>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-[20%_80%] gap-5 w-full">
-          <div>
-            <MenuLateral params={params} />
-          </div>
+    <div className="flex items-center justify-center font-sans bg-black/20 w-full">
+        <div className="grid grid-cols-1 gap-5 w-full">
           <div>
             <div className='bg-slate-900/50 border border-blue-900' style={{
               width: '100%',
@@ -178,7 +151,6 @@ export default function Webinar() {
             </div>
           </div>
         </div>
-      </main>
       <Script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"
         strategy="afterInteractive"
