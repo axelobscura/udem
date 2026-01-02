@@ -7,6 +7,7 @@ import Loader from '@/app/components/Loader';
 import { BsArrowRightCircle } from "react-icons/bs";
 import Video from '@/app/components/Video';
 import Documento from '@/app/components/Documento';
+import Evaluacion from '@/app/components/Evaluacion';
 
 interface Tipo {
     id: number;
@@ -43,9 +44,11 @@ export default function Tipo() {
     return <Loader />;
   }
 
+  console.log('Tipo Data:', tipo);
+
   return (
     <div className="flex items-center justify-center font-sans bg-black">
-      <main className="flex w-full flex-col items-center justify-between sm:items-start px-10 py-1 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat">
+      <main className="flex w-full flex-col items-center justify-between sm:items-start px-10 py-1 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat bg-fixed">
           <div className="grid grid-cols-1 gap-2 w-full items-center">
             <BreadCrumbUser params={{ categoria: decodeURIComponent(categoria as string), webinar: decodeURIComponent(webinar as string), tipo: decodeURIComponent(tipo as string) }} />
             <h3 className="font-oswald text-xs sm:text-3xl text-white font-light mb-7 flex items-center"><BsArrowRightCircle className='mr-3' /> {tipoData.nombre}</h3>
@@ -56,10 +59,9 @@ export default function Tipo() {
             </div>
             <div>
               <div>
+                {tipo === 'evaluaci%C3%B3n-diagn%C3%B3stico' &&<Evaluacion />}
                 {tipo === 'presentaci%C3%B3n-ejecutiva' &&<Documento />}
-
                 {tipo === 'videos' &&<Video id={tipoData.url} />}
-
               </div>
             </div>
           </div>

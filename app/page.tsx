@@ -119,11 +119,6 @@ export default function Home() {
                   Iniciar sesión
                 </button>
 
-                <div className="mt-4 text-center">
-                  <a href="/" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 text-sm font-oswald uppercase">
-                    ¿No tienes cuenta? Regístrate aquí
-                  </a>
-                </div>
               </form>
             </div>
           </div>
