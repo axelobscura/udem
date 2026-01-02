@@ -120,7 +120,7 @@ export default function Webinar() {
           } else {
             console.error('jQuery or flipBook not available');
           }
-      }, 200);
+      }, 500);
   };
 
   useEffect(() => {

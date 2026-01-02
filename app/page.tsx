@@ -114,7 +114,7 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 uppercase shadow-xl hover:shadow-2xl font-oswald"
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 uppercase shadow-xl hover:shadow-2xl font-oswald cursor-pointer"
                 >
                   Iniciar sesión
                 </button>

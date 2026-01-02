@@ -31,7 +31,6 @@ export default function Tipo() {
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            console.log(data);
             setTipoData(data.tipo[0]);
         } catch (error) {
             console.error(error);
@@ -57,9 +56,13 @@ export default function Tipo() {
             </div>
             <div>
               <div>
-                {tipo === 'evaluaci%C3%B3n-diagn%C3%B3stico' &&<Evaluacion />}
-                {tipo === 'presentaci%C3%B3n-ejecutiva' &&<Documento />}
-                {tipo === 'videos' &&<Video id={tipoData.url} />}
+                {tipo === 'evaluaci%C3%B3n-diagn%C3%B3stico' && <Evaluacion />}
+                {tipo === 'presentaci%C3%B3n-ejecutiva' && <Documento />}
+                {tipo === 'presentaci%C3%B3n-grabada' && <Video id={tipoData.url} />}
+                {tipo === 'videos' && <Video id={tipoData.url} />}
+                {tipo === 'dato-en-concreto' && <Documento />}
+                {tipo === 'infograf%C3%ADas' && <Documento />}
+                {tipo === 'evaluaci%C3%B3n-final' && <Evaluacion />}
               </div>
             </div>
           </div>

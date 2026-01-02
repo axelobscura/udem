@@ -8,7 +8,7 @@ export default function Header() {
       <div className="sm:flex sm:items-center sm:justify-between">
           <div className="p-5 flex flex-col justify-center">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 1953 - 2025{" "}
+              © 1953 - 2026{" "}
               <a href="https://imcyc.com/" className="hover:underline">
                 Instituto Mexicano del Cemento y del Concreto A.C.
               </a>
