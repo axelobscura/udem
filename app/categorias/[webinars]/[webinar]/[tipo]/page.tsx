@@ -44,8 +44,6 @@ export default function Tipo() {
     return <Loader />;
   }
 
-  console.log('Tipo Data:', tipo);
-
   return (
     <div className="flex items-center justify-center font-sans bg-black">
       <main className="flex w-full flex-col items-center justify-between sm:items-start px-10 py-1 bg-[url('https://amci.webinarsenconcreto.com/images/login2.png')] bg-gray-700 bg-blend-multiply z-10 bg-cover bg-center bg-no-repeat bg-fixed">

@@ -32,7 +32,6 @@ export default function Evaluacion() {
             const response = await fetch(`/api/get_evaluacion/${params.webinar}`);
             const data = await response.json();
             setEvaluacion(data);
-            console.log('Evaluacion loaded:', data);
         };
         fetchEvaluacion();
     }, [params.webinar]);

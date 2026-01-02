@@ -67,51 +67,49 @@ export default function Documento() {
   const categoria = params.webinars as string;
   const webinar = params.webinar as string;
   const [tipoData, setTipoData] = useState<Tipo | null>(null);
+  const [scriptsLoaded, setScriptsLoaded] = useState(false);
 
   const initializeFlipbook = () => {
-      // Wait a bit to ensure both scripts are fully loaded
-      setTimeout(() => {
-          if (typeof window !== 'undefined' && window.$ && window.$.fn && window.$.fn.flipBook) {
-            window.$("#container").flipBook({
-              pdfUrl: "/pdf/presentacion-ejecutiva.pdf",
-              backgroundColor: 'transparent',
-              viewMode: '3d',
-              singlePageMode: true,
-              pages: [
-                  { title: "Cover" },
-                  { title: "" },
-                  { title: "Page 3" },
-                  { title: "" },
-                  { title: "" },
-                  { title: "" },
-                  { title: "" },
-                  { title: "End" },
-              ],
-              btnToc: { enabled: false },
-              btnSelect: { enabled: false },
-              btnDownloadPages: { enabled: false },
-              btnDownloadPdf: { enabled: false },
-              btnPrint: { enabled: false },
-              btnShare: { enabled: false },
-              btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              btnSound: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              btnBookmark: { enabled: false },
-              btnExpand: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
-              currentPage: { hAlign: 'center' },
-              btnBackground: 'rgb(35 63 139);'
-            });
-          } else {
-            console.error('jQuery or flipBook not available');
-          }
-      }, 300);
+      if (typeof window !== 'undefined' && window.$ && window.$.fn && window.$.fn.flipBook) {
+        try {
+          window.$("#container").flipBook({
+            pdfUrl: "/pdf/presentacion-ejecutiva.pdf",
+            backgroundColor: 'transparent',
+            viewMode: '3d',
+            singlePageMode: true,
+            pages: [
+                { title: "Cover" },
+                { title: "" },
+                { title: "Page 3" },
+                { title: "" },
+                { title: "" },
+                { title: "" },
+                { title: "" },
+                { title: "End" },
+            ],
+            btnToc: { enabled: false },
+            btnSelect: { enabled: false },
+            btnDownloadPages: { enabled: false },
+            btnDownloadPdf: { enabled: false },
+            btnPrint: { enabled: false },
+            btnShare: { enabled: false },
+            btnZoomIn: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            btnZoomOut: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            btnSound: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            btnThumbs: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            btnBookmark: { enabled: false },
+            btnExpand: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            btnAutoplay: { vAlign: 'top', hAlign: 'right', background: '#1f4382' },
+            currentPage: { hAlign: 'center' },
+            btnBackground: 'rgb(35 63 139);'
+          });
+        } catch (error) {
+          console.error('Error initializing flipBook:', error);
+        }
+      } else {
+        console.error('jQuery or flipBook not available');
+      }
   };
-
-  useEffect(() => {
-      initializeFlipbook()
-  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -128,8 +126,13 @@ export default function Documento() {
         }
     }
     fetchData();
-    initializeFlipbook();
   }, [webinar]);
+
+  useEffect(() => {
+    if (scriptsLoaded) {
+      initializeFlipbook();
+    }
+  }, [scriptsLoaded]);
 
   if(!tipoData) {
     return <Loader />;
@@ -155,7 +158,9 @@ export default function Documento() {
             // jQuery loaded, now load flipbook
             const flipbookScript = document.createElement('script');
             flipbookScript.src = '/js/flipbook.min.js';
-            flipbookScript.onload = initializeFlipbook;
+            flipbookScript.onload = () => {
+              setScriptsLoaded(true);
+            };
             document.body.appendChild(flipbookScript);
         }}
       />
